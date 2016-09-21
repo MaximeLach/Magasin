@@ -11,6 +11,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 /**
  *
@@ -29,6 +31,19 @@ public class Produit implements Serializable {
     @Column(precision = 2)
     private float prix;
     private int stock;
+    
+    @ManyToOne//definit type de jointure
+    @JoinColumn(name = "categorie_id")//Crée une clé étrangère
+    private Categorie categorie;
+
+    public Categorie getCategorie() {
+        return categorie;
+    }
+
+    public void setCategorie(Categorie categorie) {
+        this.categorie = categorie;
+    }
+ 
 
     public Long getId() {
         return id;
@@ -36,6 +51,14 @@ public class Produit implements Serializable {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     @Override

@@ -5,11 +5,16 @@
  */
 package Magasin.entity;
 
+
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 /**
  *
@@ -18,15 +23,28 @@ import javax.persistence.Id;
 @Entity
 public class Categorie implements Serializable {
 
+    
+
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     
     private String nom;
+    @OneToMany(mappedBy = "categorie")
+    private List<Produit> produits = new ArrayList<>();
+   
 
     public Long getId() {
         return id;
+    }
+
+    public String getNom() {
+        return nom;
+    }
+
+    public void setNom(String nom) {
+        this.nom = nom;
     }
 
     public void setId(Long id) {
@@ -52,7 +70,13 @@ public class Categorie implements Serializable {
         }
         return true;
     }
+    public List<Produit> getProduits() {
+        return produits;
+    }
 
+    public void setProduits(List<Produit> produits) {
+        this.produits = produits;
+    }
     @Override
     public String toString() {
         return "Magasin.entity.Categorie[ id=" + id + " ]";
