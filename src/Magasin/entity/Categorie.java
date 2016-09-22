@@ -31,6 +31,7 @@ public class Categorie implements Serializable {
     private Long id;
     
     private String nom;
+    
     @OneToMany(mappedBy = "categorie")
     private List<Produit> produits = new ArrayList<>();
    

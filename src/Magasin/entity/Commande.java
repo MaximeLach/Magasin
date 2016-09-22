@@ -6,7 +6,9 @@
 package Magasin.entity;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
@@ -15,6 +17,10 @@ import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
@@ -38,6 +44,7 @@ public class Commande implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     
+    
     @Embedded
     private Adresse adresse;
     private String moyenDePaiement;
@@ -54,6 +61,14 @@ public class Commande implements Serializable {
     @Temporal(TemporalType.DATE)
     private Date dateLivraison;
     
+    @ManyToOne//definit type de jointure
+    @JoinColumn(name = "client_id")//Crée une clé étrangère
+    private Client client;
+    
+    @ManyToMany
+    @JoinTable(name = "commande_produit")
+    private List<Produit> produits = new ArrayList<>();
+    
     public Long getId() {
         return id;
     }
@@ -61,6 +76,24 @@ public class Commande implements Serializable {
     public void setId(Long id) {
         this.id = id;
     }
+
+    public float getPrixTotal() {
+        return prixTotal;
+    }
+
+    public void setPrixTotal(float prixTotal) {
+        this.prixTotal = prixTotal;
+    }
+
+    public Client getClient() {
+        return client;
+    }
+
+    public void setClient(Client client) {
+        this.client = client;
+    }
+
+   
 
     @Override
     public int hashCode() {

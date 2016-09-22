@@ -2641,7 +2641,7 @@
 									"model": {
 										"$ref": "AAAAAAFXS7kT64qJZoE="
 									},
-									"visible": false,
+									"visible": true,
 									"enabled": true,
 									"lineColor": "#000000",
 									"fillColor": "#ffffff",
@@ -2650,18 +2650,19 @@
 									"showShadow": true,
 									"containerChangeable": false,
 									"containerExtending": false,
-									"left": 734,
-									"top": 323,
-									"width": 0,
+									"left": 727,
+									"top": 311,
+									"width": 50.578125,
 									"height": 13,
 									"autoResize": false,
-									"alpha": 0.5235987755982988,
-									"distance": 30,
+									"alpha": 1.165238616163145,
+									"distance": 35.84689665786984,
 									"hostEdge": {
 										"$ref": "AAAAAAFXS7kT7YqMCgg="
 									},
 									"edgePosition": 2,
 									"underline": false,
+									"text": "-produits",
 									"horizontalAlignment": 2,
 									"verticalAlignment": 5
 								},
@@ -2740,7 +2741,7 @@
 									"model": {
 										"$ref": "AAAAAAFXS7kT64qKrZA="
 									},
-									"visible": false,
+									"visible": true,
 									"enabled": true,
 									"lineColor": "#000000",
 									"fillColor": "#ffffff",
@@ -2749,18 +2750,19 @@
 									"showShadow": true,
 									"containerChangeable": false,
 									"containerExtending": false,
-									"left": 734,
-									"top": 502,
-									"width": 0,
+									"left": 648,
+									"top": 511,
+									"width": 57.80810546875,
 									"height": 13,
 									"autoResize": false,
-									"alpha": -0.5235987755982988,
-									"distance": 30,
+									"alpha": 1.1977714137345097,
+									"distance": 47.16990566028302,
 									"hostEdge": {
 										"$ref": "AAAAAAFXS7kT7YqMCgg="
 									},
 									"edgePosition": 0,
 									"underline": false,
+									"text": "-categorie",
 									"horizontalAlignment": 2,
 									"verticalAlignment": 5
 								},
@@ -3121,10 +3123,11 @@
 								"_parent": {
 									"$ref": "AAAAAAFXS7kT64qIOEE="
 								},
+								"name": "produits",
 								"reference": {
 									"$ref": "AAAAAAFXS6/ORIiZgbQ="
 								},
-								"visibility": "public",
+								"visibility": "private",
 								"navigable": true,
 								"aggregation": "none",
 								"isReadOnly": false,
@@ -3139,10 +3142,11 @@
 								"_parent": {
 									"$ref": "AAAAAAFXS7kT64qIOEE="
 								},
+								"name": "categorie",
 								"reference": {
 									"$ref": "AAAAAAFXS7AN7YjtwTE="
 								},
-								"visibility": "public",
+								"visibility": "private",
 								"navigable": true,
 								"aggregation": "composite",
 								"isReadOnly": false,

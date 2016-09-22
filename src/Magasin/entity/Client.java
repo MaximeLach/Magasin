@@ -6,11 +6,14 @@
 package Magasin.entity;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 /**
  *
@@ -31,9 +34,28 @@ public class Client implements Serializable {
     private String prenom;
     @Embedded
     private Adresse adresse;
+    
+    @OneToMany(mappedBy = "client")
+    private List<Commande> commandes = new ArrayList<>();
 
     public Long getId() {
         return id;
+    }
+
+    public List<Commande> getCommandes() {
+        return commandes;
+    }
+
+    public void setCommandes(List<Commande> commandes) {
+        this.commandes = commandes;
+    }
+
+    public String getNom() {
+        return nom;
+    }
+
+    public void setNom(String nom) {
+        this.nom = nom;
     }
 
     public void setId(Long id) {

@@ -6,12 +6,16 @@
 package Magasin.entity;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 
 /**
@@ -35,7 +39,10 @@ public class Produit implements Serializable {
     @ManyToOne//definit type de jointure
     @JoinColumn(name = "categorie_id")//Crée une clé étrangère
     private Categorie categorie;
-
+    
+    @ManyToMany(mappedBy = "produits")
+    private List<Commande> commandes = new ArrayList();
+    
     public Categorie getCategorie() {
         return categorie;
     }
